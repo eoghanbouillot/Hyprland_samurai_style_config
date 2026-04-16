@@ -1,0 +1,134 @@
+{
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    //  WAYBAR — 墨絵 Sumi-e Theme
+    //  Barre supérieure minimaliste — Noir sur Ivoire
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+    "layer": "top",
+    "position": "top",
+    "height": 32,
+    "spacing": 0,
+    "margin-top": 0,
+    "margin-left": 0,
+    "margin-right": 0,
+
+    // Modules gauche / centre / droite
+    "modules-left": [
+        "hyprland/workspaces",
+        "hyprland/window"
+    ],
+
+    "modules-center": [
+        "clock"
+    ],
+
+    "modules-right": [
+        "pulseaudio",
+        "battery",
+        "tray"
+    ],
+
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    //  WORKSPACES — 間 en Kanjis (一 二 三 四 五)
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    "hyprland/workspaces": {
+        "format": "{icon}",
+        "format-icons": {
+            "1":  "一",
+            "2":  "二",
+            "3":  "三",
+            "4":  "四",
+            "5":  "五",
+            "6":  "六",
+            "7":  "七",
+            "8":  "八",
+            "9":  "九",
+            "10": "十"
+        },
+        "on-click": "activate",
+        "sort-by-number": true,
+        "active-only": false,
+        "show-special": false,
+        "persistent-workspaces": {
+            "DP-1": [1, 2, 3, 4, 5],
+            "DP-2": [6, 7, 8, 9, 10]
+        }
+    },
+
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    //  TITRE FENÊTRE — sobre, ellipsis à 40 chars
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    "hyprland/window": {
+        "max-length": 40,
+        "separate-outputs": true,
+        "rewrite": {
+            "(.*) — Mozilla Firefox": "󰈹  $1",
+            "(.*) — Brave":           "󰈹  $1",
+            "kitty":                  "  Terminal",
+            "nvim":                   "  $1",
+            "":                       "　"
+        }
+    },
+
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    //  HORLOGE — Format japonais élégant
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    "clock": {
+        "timezone": "Europe/Paris",
+        "format": "{:%H:%M}",
+        "format-alt": "{:%d %B %Y — %A}",
+        "tooltip-format": "<span font='Victor Mono 10'>{calendar}</span>",
+        "calendar": {
+            "mode": "year",
+            "mode-mon-col": 3,
+            "weeks-pos": "right",
+            "format": {
+                "months": "<span color='#1A1A1A'><b>{}</b></span>",
+                "days":   "<span color='#1A1A1A'>{}</span>",
+                "weeks":  "<span color='#3D3935'>W{}</span>",
+                "weekdays": "<span color='#1A1A1A'><b>{}</b></span>",
+                "today":  "<span color='#1A1A1A'><b><u>{}</u></b></span>"
+            }
+        },
+        "on-click": "mode"
+    },
+
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    //  AUDIO — 音
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    "pulseaudio": {
+        "format": "{icon} {volume}%",
+        "format-muted": "󰖁 沈",
+        "format-icons": {
+            "default": ["󰕿", "󰖀", "󰕾"]
+        },
+        "on-click": "pavucontrol",
+        "scroll-step": 2
+    },
+
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    //  BATTERIE — (PC fixe : module désactivé par défaut)
+    //  Décommente si tu ajoutes un UPS ou laptop
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    "battery": {
+        "states": {
+            "good":     90,
+            "warning":  30,
+            "critical": 15
+        },
+        "format":           "{icon} {capacity}%",
+        "format-charging":  "󰂄 {capacity}%",
+        "format-plugged":   "󰚥 {capacity}%",
+        "format-full":      "󰁹 充",
+        "format-icons":     ["󰁺", "󰁻", "󰁼", "󰁽", "󰁾", "󰁿", "󰂀", "󰂁", "󰂂", "󰁹"],
+        "tooltip-format":   "{timeTo} — {power:.1f}W"
+    },
+
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    //  TRAY
+    // ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+    "tray": {
+        "icon-size": 14,
+        "spacing": 8
+    }
+}
