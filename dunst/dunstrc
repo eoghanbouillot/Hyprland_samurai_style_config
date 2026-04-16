@@ -1,0 +1,89 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#  DUNST — 墨絵 Notifications
+#  Sobre, coin inférieur gauche, N&B strict
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+[global]
+    monitor          = 0
+    follow           = none
+    width            = 300
+    height           = 100
+    origin           = bottom-left
+    offset           = 15x15
+    scale            = 0
+    notification_limit = 3
+
+    progress_bar               = true
+    progress_bar_height        = 2
+    progress_bar_frame_width   = 1
+    progress_bar_min_width     = 200
+    progress_bar_max_width     = 280
+    progress_bar_corner_radius = 0
+
+    transparency     = 0
+    padding          = 10
+    horizontal_padding = 12
+    text_icon_padding = 0
+    frame_width      = 1
+    gap_size         = 6
+    separator_height = 0
+
+    font = IPAMincho 12
+    line_height = 0
+    markup = full
+    format = %b
+    alignment = left
+    vertical_alignment = center
+    show_age_threshold = -1
+    ellipsize = middle
+    ignore_newline = false
+    stack_duplicates = true
+    hide_duplicate_count = false
+    show_indicators = false
+
+    icon_theme = Papirus
+    enable_recursive_icon_lookup = true
+    icon_position = off           # Pas d'icônes — style épuré
+
+    sticky_history = false
+    history_length = 20
+    dmenu = /usr/bin/wofi -p dunst
+    browser = /usr/bin/firefox
+
+    always_run_script = true
+    title = Dunst
+    class = Dunst
+    corner_radius = 0
+    ignore_dbusclose = false
+
+    force_xwayland = false
+    force_xinerama = false
+
+    mouse_left_click   = do_action, close_current
+    mouse_middle_click = close_current
+    mouse_right_click  = close_all
+
+[experimental]
+    per_monitor_dpi = false
+
+# ─── Urgence faible (OSD Volume/Luminosité) ───────
+[urgency_low]
+    background   = "#F5F1E6"
+    foreground   = "#1A1A1A"
+    frame_color  = "#1A1A1A"
+    timeout      = 2
+    default_icon = dialog-information
+
+# ─── Urgence normale ──────────────────────────────
+[urgency_normal]
+    background   = "#F5F1E6"
+    foreground   = "#1A1A1A"
+    frame_color  = "#1A1A1A"
+    timeout      = 5
+
+# ─── Urgence critique ─────────────────────────────
+[urgency_critical]
+    background   = "#1A1A1A"
+    foreground   = "#F5F1E6"
+    frame_color  = "#1A1A1A"
+    timeout      = 0
