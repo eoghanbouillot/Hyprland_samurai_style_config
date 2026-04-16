@@ -1,0 +1,113 @@
+/*
+ *  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ *  WOFI — 墨絵 (Sumi-e) Style
+ *  Lanceur centré, épuré, encre sur papier
+ *  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ */
+
+* {
+    font-family: "IPAMincho", "Noto Serif JP", serif;
+    font-size: 14px;
+    color: #1A1A1A;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    box-shadow: none;
+}
+
+/* ─── Fenêtre principale ─────────────────────────── */
+window {
+    background-color: #F5F1E6;
+    border: 1px solid #1A1A1A;
+    margin: 0;
+}
+
+/* ─── Zone de recherche ──────────────────────────── */
+#input {
+    font-family: "Victor Mono", monospace;
+    font-style: italic;
+    font-size: 15px;
+    color: #1A1A1A;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid #1A1A1A;
+    padding: 10px 16px;
+    margin: 0;
+    letter-spacing: 0.04em;
+}
+
+#input:focus {
+    border-bottom: 1px solid #1A1A1A;
+    background: transparent;
+    outline: none;
+}
+
+/* Placeholder */
+#input placeholder {
+    color: #8C8279;
+}
+
+/* ─── Outer box ──────────────────────────────────── */
+#outer-box {
+    background: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+/* ─── Inner box ──────────────────────────────────── */
+#inner-box {
+    background: transparent;
+    padding: 6px 0;
+}
+
+/* ─── Scroll ─────────────────────────────────────── */
+#scroll {
+    background: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+/* ─── Chaque entrée ──────────────────────────────── */
+#entry {
+    background: transparent;
+    padding: 7px 16px;
+    transition: background 60ms ease;
+    border-left: 2px solid transparent;
+}
+
+#entry:selected {
+    background: rgba(26, 26, 26, 0.07);
+    border-left: 2px solid #1A1A1A;
+}
+
+#entry:hover {
+    background: rgba(26, 26, 26, 0.05);
+}
+
+/* ─── Texte des entrées ──────────────────────────── */
+#entry #text {
+    font-family: "IPAMincho", "Noto Serif JP", serif;
+    font-size: 13px;
+    color: #1A1A1A;
+    margin: 0;
+    padding: 0;
+}
+
+#entry:selected #text {
+    color: #1A1A1A;
+    font-weight: 600;
+}
+
+/* ─── Scrollbar invisible ────────────────────────── */
+scrollbar {
+    background: transparent;
+    border: none;
+    min-width: 0;
+    min-height: 0;
+}
+
+scrollbar slider {
+    background: rgba(26, 26, 26, 0.15);
+    min-width: 2px;
+    border-radius: 0;
+}
