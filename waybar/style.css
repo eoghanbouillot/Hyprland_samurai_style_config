@@ -1,0 +1,198 @@
+/*
+ *  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ *  WAYBAR — 墨絵 (Sumi-e) Style
+ *  Noir profond sur papier ivoire
+ *  Typographie : IPAMincho (interface) + Victor Mono
+ *  ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+ */
+
+/* ─── Variables de couleurs ─────────────────────── */
+@define-color ivoire     #F5F1E6;
+@define-color noir       #1A1A1A;
+@define-color encre      #3D3935;
+@define-color lavis      #8C8279;   /* Encre diluée — gris chaud */
+@define-color brush      rgba(26, 26, 26, 0.08);
+
+/* ─── Reset global ──────────────────────────────── */
+* {
+    font-family: "IPAMincho", "Kozuka Mincho Pro", "Noto Serif JP", serif;
+    font-size: 13px;
+    font-weight: 400;
+    min-height: 0;
+    border: none;
+    border-radius: 0;
+    box-shadow: none;
+    text-shadow: none;
+    -gtk-icon-shadow: none;
+}
+
+/* ─── Barre principale ──────────────────────────── */
+window#waybar {
+    background-color: @ivoire;
+    color: @noir;
+    border-bottom: 1px solid @noir;
+    transition: none;
+}
+
+/* ─── Tooltip ────────────────────────────────────── */
+tooltip {
+    background: @ivoire;
+    border: 1px solid @noir;
+    border-radius: 0;
+    color: @noir;
+    font-family: "Victor Mono", monospace;
+    font-size: 11px;
+}
+
+tooltip label {
+    color: @noir;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   WORKSPACES — 間 (espaces en Kanjis)
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#workspaces {
+    margin: 0;
+    padding: 0 8px;
+    background: transparent;
+    gap: 0;
+}
+
+#workspaces button {
+    font-family: "IPAMincho", "Noto Serif JP", serif;
+    font-size: 15px;
+    font-weight: 400;
+    color: @lavis;
+    background: transparent;
+    padding: 0 10px;
+    min-width: 28px;
+    border: none;
+    border-radius: 0;
+    transition: color 80ms ease, border-bottom 80ms ease;
+    border-bottom: 2px solid transparent;
+}
+
+#workspaces button:hover {
+    color: @noir;
+    background: @brush;
+    border-bottom: 2px solid @encre;
+}
+
+/* Workspace actif — encre pleine */
+#workspaces button.active {
+    color: @noir;
+    font-weight: 700;
+    border-bottom: 2px solid @noir;
+    background: transparent;
+}
+
+/* Workspace urgent */
+#workspaces button.urgent {
+    color: @noir;
+    border-bottom: 2px solid @noir;
+    background: rgba(26, 26, 26, 0.12);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   TITRE DE FENÊTRE
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#window {
+    font-family: "Victor Mono", monospace;
+    font-style: italic;
+    font-size: 11px;
+    color: @encre;
+    padding: 0 12px;
+    letter-spacing: 0.03em;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   HORLOGE — 時刻
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#clock {
+    font-family: "IPAMincho", "Noto Serif JP", serif;
+    font-size: 14px;
+    font-weight: 400;
+    color: @noir;
+    letter-spacing: 0.1em;
+    padding: 0 20px;
+    /* Séparateurs gauche/droite subtils */
+    border-left: 1px solid rgba(26, 26, 26, 0.2);
+    border-right: 1px solid rgba(26, 26, 26, 0.2);
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   AUDIO — 音
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#pulseaudio {
+    font-family: "Victor Mono", "Symbols Nerd Font", monospace;
+    font-size: 12px;
+    color: @encre;
+    padding: 0 10px;
+}
+
+#pulseaudio.muted {
+    color: @lavis;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   BATTERIE — 力
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#battery {
+    font-family: "Victor Mono", "Symbols Nerd Font", monospace;
+    font-size: 12px;
+    color: @encre;
+    padding: 0 10px;
+}
+
+#battery.charging,
+#battery.plugged {
+    color: @noir;
+}
+
+#battery.warning {
+    color: @encre;
+    font-weight: 700;
+}
+
+#battery.critical:not(.charging) {
+    color: @noir;
+    background: rgba(26, 26, 26, 0.1);
+    animation: battery-pulse 1s ease infinite alternate;
+}
+
+@keyframes battery-pulse {
+    from { opacity: 1; }
+    to   { opacity: 0.4; }
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   TRAY
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#tray {
+    padding: 0 8px;
+}
+
+#tray > .passive {
+    -gtk-icon-effect: dim;
+}
+
+#tray > .needs-attention {
+    -gtk-icon-effect: highlight;
+}
+
+/* ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+   ÉTATS HOVER GLOBAUX
+   ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━ */
+
+#pulseaudio:hover,
+#battery:hover,
+#clock:hover {
+    color: @noir;
+    background: @brush;
+}
