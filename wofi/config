@@ -1,0 +1,28 @@
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+#  WOFI — 墨絵 Config
+#  Lanceur centré, minimaliste, N&B
+# ━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━
+
+width=480
+height=300
+
+# Centré sur l'écran
+xoffset=0
+yoffset=0
+
+# Interface
+show=drun
+prompt=　墨 — 
+columns=1
+allow_images=false
+allow_markup=true
+no_actions=true
+gtk_dark=false
+
+# Comportement
+insensitive=true
+hide_scroll=true
+dynamic_lines=false
+term=kitty
+key_down=Down
+key_up=Up
